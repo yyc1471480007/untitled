@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+    <!--配置核心信息-->
+    <!--配置servlet-->
+    <servlet>
+        <!--可以自定义名称-->
+        <servlet-name>myServlet1</servlet-name>
+        <servlet-class>cn.kgc.servlet.MyServlet1</servlet-class>
+        <!--配置初始化信息-->
+        <init-param>
+            <param-name>code</param-name>
+            <param-value>utf-8</param-value>
+        </init-param>
+        <init-param>
+            <param-name>name</param-name>
+            <param-value>tom</param-value>
+        </init-param>
+    </servlet>
+    <servlet>
+        <servlet-name>myServlet2</servlet-name>
+        <servlet-class>cn.kgc.servlet.MyServlet2</servlet-class>
+        <init-param>
+            <param-name>sex</param-name>
+            <param-value>女</param-value>
+        </init-param>
+    </servlet>
+    <servlet>
+        <servlet-name>myServlet3</servlet-name>
+        <servlet-class>cn.kgc.servlet.MyServlet3</servlet-class>
+    </servlet>
+    
+    
+    <servlet-mapping>
+        <!--该名字必须要跟servlet-name的值完全一致-->
+        <servlet-name>myServlet1</servlet-name>
+        <!--
+         url : http://localhost:8089/day16_servlet/login
+        -->
+        <!--通过url-pattern：找到对应的servlet
+            访问servlet的url
+            不能重复！
+        -->
+        <!--<url-pattern>/login</url-pattern>
+        <url-pattern>/load</url-pattern>-->
+        <!--
+         / : 表示项目的根目录
+         * : 匹配任意的字符
+         要么前面写 /
+         要么后面写  .do
+         不能前后夹击。
+        -->
+        <!--<url-pattern>/servlet/*</url-pattern>-->
+        <!--<url-pattern>*.do</url-pattern>-->
+        <url-pattern>*.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>myServlet2</servlet-name>
+        <url-pattern>/myservlet2</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>myServlet3</servlet-name>
+        <url-pattern>/myServlet3</url-pattern>
+    </servlet-mapping>
+</web-app>
